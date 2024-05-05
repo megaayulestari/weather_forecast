@@ -15,7 +15,7 @@ class CityCubit extends Cubit<String> {
     emit(n);
   }
 
-  saveCity() async {
+  saveCity() {
     appSession.saveCityName(state);
   }
   // saveCity() async {
