@@ -106,7 +106,7 @@ class _PickPlacePageState extends State<PickPlacePage> {
                             onPressed: () {
                               context.read<CityCubit>().saveCity();
                               FocusManager.instance.primaryFocus?.unfocus(); //ketika klik button, keyboard akan menghilang
-                              Navigator.pop(context, 'refresh');
+                              //Navigator.pop(context, 'refresh');
                             },
                             icon: const Icon(Icons.check),
                           );
