@@ -23,6 +23,7 @@ class _PickPlacePageState extends State<PickPlacePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       //membuat button Back (awal)
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => Navigator.pop(context), 
@@ -30,8 +31,10 @@ class _PickPlacePageState extends State<PickPlacePage> {
         icon: const Icon(Icons.arrow_back),
       ), 
       //membuat button Back (akhir)
+
       body: Stack(
         children: [
+
           //set background halaman pick place(awal)
           Positioned.fill( 
             child: Image.asset(
@@ -40,14 +43,18 @@ class _PickPlacePageState extends State<PickPlacePage> {
             ),
           ), 
           //set background halaman pick place(akhir)
+
           Positioned(
             top: MediaQuery.of(context).size.height / 4, //jarak atas 1/4 dari tinggi maksimum
             left: 30, //jarak ke kiri
             right: 30, //jarak ke kanan
+
+            //layout kolom berisi judul dan textfield untuk input cityname
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                //widget teks untuk judul halaman (awal)
+
+                //widget stateless teks untuk judul halaman (awal)
                 Text(
                     'Set Up\nyour location',
                     style: Theme.of(context).textTheme.displaySmall!.copyWith(
@@ -56,17 +63,19 @@ class _PickPlacePageState extends State<PickPlacePage> {
                         ),
                 ),
                 //judul halaman (akhir)
+
                 DView.spaceHeight(24), //jarak tulisan set up dengan text input city
                 Container(
                   decoration: BoxDecoration(
-                     color: Colors.white.withOpacity(0.7),
-                     borderRadius: BorderRadius.circular(30),
-                   ),
-                   padding: const EdgeInsets.only(left: 30),
-                   height: 50,
-                   child: Row(
-                     children: [
+                    color: Colors.white.withOpacity(0.7),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  padding: const EdgeInsets.only(left: 30),
+                  height: 50,
+                  child: Row(
+                    children: [
                       Expanded(
+                        //widget statefull textfield
                         child: TextField(
                           controller: edtCity,
                           decoration: const InputDecoration(
@@ -79,14 +88,17 @@ class _PickPlacePageState extends State<PickPlacePage> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
+
                           //efek untuk untuk memunculkan button hanya ketika ada perubahan di input/ pas ngetik
                           onChanged: (value) {
                             context.read<CityCubit>().listenChange(value);
                           },
+
                         ),
                       ),
                       DView.spaceWidth(30), //jarak text ke button
-                      //membuat button (awal)
+
+                      //membuat widget stateless button (awal)
                       BlocBuilder<CityCubit, String>(
                         builder: (context, state) {
                           if (state == '') return DView.nothing(); //noting berisi sizedbox kosong
@@ -100,7 +112,8 @@ class _PickPlacePageState extends State<PickPlacePage> {
                           );
                         },
                       )
-                      //membuat button (akhir)
+                      //membuat widget stateless button (akhir)
+
                     ],
                   ),
                 ),
