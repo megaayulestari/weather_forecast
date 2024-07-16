@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:d_view/d_view.dart';
 import 'package:flutter/widgets.dart';
@@ -106,7 +108,7 @@ class _PickPlacePageState extends State<PickPlacePage> {
                             onPressed: () {
                               context.read<CityCubit>().saveCity();
                               FocusManager.instance.primaryFocus?.unfocus(); //ketika klik button, keyboard akan menghilang
-                              //Navigator.pop(context, 'refresh');
+                              Navigator.pop(context, 'refresh');
                             },
                             icon: const Icon(Icons.check),
                           );

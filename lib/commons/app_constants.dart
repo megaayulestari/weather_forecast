@@ -1,3 +1,5 @@
+
+//menampilkan gambar background sesuai kondisi cuaca (by value yg dibuat)
 const weatherBG = {
   'clear sky': 'assets/clear_sky.jpg',
   'few clouds': 'assets/few_clouds.jpg',
